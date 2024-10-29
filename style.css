@@ -58,7 +58,7 @@
   border-radius: 5px;
 }
 
-.tooltip:has(img) {
+.tooltip:has(img:not(.small)) {
   width: 450px; /* Wider tooltip only if it contains an image */
 }
 
