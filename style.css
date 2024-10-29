@@ -31,8 +31,16 @@
   width: 200px;
   text-align: center;
   z-index: 10;
-opacity: 0; /* Set initial opacity to 0 for fade-in effect */
+  opacity: 0; /* Set initial opacity to 0 for fade-in effect */
   transition: opacity 0.7s ease, transform 0.7s ease; /* Smooth transition */
+}
+
+/* Active state for tooltips */
+.tooltip.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(-100%);
+  margin-top: -10px;
 }
 
 .event-box:hover .tooltip {

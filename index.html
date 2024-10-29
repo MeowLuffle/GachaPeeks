@@ -120,7 +120,50 @@
       <div class="tooltip">limited shop event<br />runs for 12 days</div>
     </div>
 
+    <script>
+      // Select all event boxes
+      const eventBoxes = document.querySelectorAll('.event-box');
+
+      eventBoxes.forEach((box) => {
+        const tooltip = box.querySelector('.tooltip');
+
+        // On click (for mobile), toggle tooltip visibility
+        box.addEventListener('click', (event) => {
+          event.stopPropagation(); // Prevents triggering document click listener
+
+          // Remove active class from all tooltips
+          document.querySelectorAll('.tooltip.active').forEach((activeTooltip) => {
+            activeTooltip.classList.remove('active');
+          });
+
+          // Toggle current tooltip
+          tooltip.classList.toggle('active');
+        });
+
+        // On hover (for desktop), remove active class from all tooltips and show only the current
+        box.addEventListener('mouseenter', () => {
+          document.querySelectorAll('.tooltip.active').forEach((activeTooltip) => {
+            activeTooltip.classList.remove('active');
+          });
+          tooltip.classList.add('active');
+        });
+
+        // Remove tooltip on mouse leave (for desktop)
+        box.addEventListener('mouseleave', () => {
+          tooltip.classList.remove('active');
+        });
+      });
+
+      // Hide tooltip when clicking outside any event box (for mobile)
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.tooltip.active').forEach((activeTooltip) => {
+          activeTooltip.classList.remove('active');
+        });
+      });
+    </script>
+
   </div>
+
 </body>
 
 </html>
