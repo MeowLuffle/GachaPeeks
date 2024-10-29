@@ -3,7 +3,7 @@
   position: relative;
   width: 1080px; /* Match image width */
   height: 1400px; /* Match image height */
-  background: url('black bg.png') no-repeat;
+  background: url('merged bg.png') no-repeat;
   background-size: cover;
   margin: auto;
 }
