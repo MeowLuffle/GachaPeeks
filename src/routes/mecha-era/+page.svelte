@@ -5,7 +5,7 @@
 	import mechasetv1 from '$lib/assets/mechasetv1.png';
 	import halloweennight from '$lib/assets/halloweennight.png';
 	import mechasetbunv1 from '$lib/assets/mechasetbunv1.png';
-	import springsinvitation from '$lib/assets/springsinvitation.png';
+	import springsinvitation from '$lib/assets/springsinvitation.jpg';
 </script>
 
 <!-- Main Container with Background Image -->
