@@ -1,5 +1,5 @@
 <script lang="ts">
-	import mecha_era_preview from '$lib/assets/mecha_era_card_preview.png';
+	import { base } from '$app/paths';
 	let count = 0;
 </script>
 
@@ -15,7 +15,7 @@
 			</li>
 		</ul>
 		<!-- Go back to home anchor -->
-		<a href="/" class="btn variant-filled">
+		<a href="{base}/" class="btn variant-filled">
 			<b>Home~</b>
 		</a>
 		<div class="flex justify-start space-x-4">

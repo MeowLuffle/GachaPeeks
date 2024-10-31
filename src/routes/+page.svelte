@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import mecha_era_preview from '$lib/assets/mecha_era_card_preview.png';
 	let count = 0;
 </script>
@@ -43,7 +44,7 @@
 			<div class="absolute inset-0 bg-black bg-opacity-50 hover:bg-opacity-0 duration-500"></div>
 			<footer class="card-footer text-black relative z-10 p-4 flex content-end justify-end">
 				<button class="btn variant-filled">
-					<a href="/mecha-era">
+					<a href="{base}/mecha-era">
 						<b>Dive~</b>
 					</a>
 				</button>
