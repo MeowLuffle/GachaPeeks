@@ -1,3 +1,37 @@
+/* Static background layer (your custom image) */
+.static-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('mymatrixbgdone.png') no-repeat center center; /* Replace with your static image path */
+  background-size: cover;
+  z-index: -3; /* Places it behind the animated background */
+}
+
+
+/* Animated gradient keyframes */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Animated background layer */
+.background-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensures it stays behind the main content */
+  background: linear-gradient(270deg, #8997e0, #162c3a);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  opacity: 0.3; /* Adjust this for transparency */
+}
+
 /* Set the container to the exact dimensions of the main image */
 .container {
   position: relative;
