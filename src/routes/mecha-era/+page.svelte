@@ -1,17 +1,64 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import background from '$lib/assets/merged bg.png';
-	import museofinspo from '$lib/assets/museofinspo.png';
-	import mechasetv1 from '$lib/assets/mechasetv1.png';
+	import outerbackground from '$lib/assets/mymatrixbgdone.png';
+	import innerbackground from '$lib/assets/merged bg.png';
 	import halloweennight from '$lib/assets/halloweennight.png';
+	import maximalistaesthetic from '$lib/assets/maximalist aesthetic.png';
 	import mechasetbunv1 from '$lib/assets/mechasetbunv1.png';
+	import mechasetv1 from '$lib/assets/mechasetv1.png';
+	import museofinspo from '$lib/assets/museofinspo.png';
+	import rebelliouselegance from '$lib/assets/rebelliouselegance.png';
 	import springsinvitation from '$lib/assets/springsinvitation.jpg';
 </script>
+
+<svelte:head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta
+		name="description"
+		content="A compiled calendar packed with all the relevant resources you need - explore, click, or hover to uncover what lies in store! 🧸 "
+	/>
+	<meta property="og:url" content="https://meowluffle.github.io/GachaPeeks" />
+	<meta property="og:title" content="Interactive Mecha Era Calendar" />
+	<meta
+		property="og:description"
+		content="A compiled calendar packed with all the relevant resources you need - explore, click, or hover to uncover what lies in store! 🧸 "
+	/>
+	<meta content="#8ad4f1" data-react-helmet="true" name="theme-color" />
+	<meta
+		property="og:image"
+		content="https://meowluffle.github.io/GachaPeeks/era2calendarthumbnail.png"
+	/>
+	<meta property="twitter:title" content="Interactive Mecha Era Calendar" />
+	<meta
+		property="twitter:description"
+		content="A compiled calendar packed with all the relevant resources you need - explore, click, or hover to uncover what lies in store! 🧸 "
+	/>
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="darkreader-lock" />
+
+	<meta name="color:Scrollbar" content="#c5dfed" />
+	<title>👾Mecha Era Event Preview👾</title>
+	<link
+		rel="icon"
+		type="image/x-icon"
+		href="https://64.media.tumblr.com/0026239913bf82dd86f251cf64b2496b/tumblr_inline_p7j3hmX0Vz1rhwzwl_75sq.gifv"
+	/>
+</svelte:head>
+
+<!-- Static Background Layer (Image) -->
+<div
+	class="static-background"
+	style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url({outerbackground}) no-repeat center center; background-size: cover; z-index: -3;"
+></div>
+
+<!-- Background layer for the animated gradient -->
+<div class="background-layer"></div>
 
 <!-- Main Container with Background Image -->
 <div
 	class="w-full"
-	style="position: relative; width: 1080px; height: 1400px; background: url({background}); background-size: cover; margin: auto;"
+	style="position: relative; width: 1080px; height: 1400px; background: url({innerbackground}); background-size: cover; margin: auto;"
 >
 	<!-- Each event box represents a clickable area -->
 
@@ -55,7 +102,10 @@
 
 	<!-- Makeup Gacha - Rebellious Elegance -->
 	<div class="event-box" style="left: 23px; top: 767px; width: 296px; height: 58px">
-		<div class="tooltip">💄 makeup gacha 💋 <br /> ╰ʚ tba ₊⊹</div>
+		<div class="tooltip">
+			<img src={rebelliouselegance} alt="Makeup Gacha - Rebellious Elegance" />
+			💄 makeup gacha 💋
+		</div>
 	</div>
 
 	<!-- Gacha Flashback - Night of Halloween -->
@@ -143,7 +193,10 @@
 
 	<!-- Deco Pack - Maximalist Aesthetics -->
 	<div class="event-box" style="left: 23px; top: 1280px; width: 296px; height: 57px">
-		<div class="tooltip">🖤 black gem decoration 💎 <br /> ╰ʚ tba ₊⊹</div>
+		<div class="tooltip">
+			<img src={maximalistaesthetic} alt="Deco Pack - Maximalist Aesthetics" />
+			🖤 black gem decoration 💎
+		</div>
 	</div>
 
 	<!-- Deco Pack - Beneath the Car's Shadow -->
@@ -192,9 +245,201 @@
 			});
 		});
 	</script>
+
+	<!-- Sparkle Effect Script -->
+	<script type="text/javascript">
+		var colour = '#00baff';
+		var sparkles = 120;
+
+		var x = (ox = 400);
+		var y = (oy = 300);
+		var swide = 800;
+		var shigh = 600;
+		var sleft = (sdown = 0);
+		var tiny = new Array();
+		var star = new Array();
+		var starv = new Array();
+		var starx = new Array();
+		var stary = new Array();
+		var tinyx = new Array();
+		var tinyy = new Array();
+		var tinyv = new Array();
+
+		window.onload = function () {
+			if (document.getElementById) {
+				for (var i = 0; i < sparkles; i++) {
+					var rats = createDiv(3, 3);
+					rats.style.visibility = 'hidden';
+					document.body.appendChild((tiny[i] = rats));
+					starv[i] = 0;
+					tinyv[i] = 0;
+					var rats = createDiv(5, 5);
+					rats.style.backgroundColor = 'transparent';
+					rats.style.visibility = 'hidden';
+					var rlef = createDiv(1, 5);
+					var rdow = createDiv(5, 1);
+					rats.appendChild(rlef);
+					rats.appendChild(rdow);
+					rlef.style.top = '2px';
+					rlef.style.left = '0px';
+					rdow.style.top = '0px';
+					rdow.style.left = '2px';
+					document.body.appendChild((star[i] = rats));
+				}
+				set_width();
+				sparkle();
+			}
+		};
+
+		function sparkle() {
+			var c;
+			if (x != ox || y != oy) {
+				ox = x;
+				oy = y;
+				for (c = 0; c < sparkles; c++)
+					if (!starv[c]) {
+						star[c].style.left = (starx[c] = x) + 'px';
+						star[c].style.top = (stary[c] = y) + 'px';
+						star[c].style.clip = 'rect(0px, 5px, 5px, 0px)';
+						star[c].style.visibility = 'visible';
+						starv[c] = 50;
+						break;
+					}
+			}
+			for (c = 0; c < sparkles; c++) {
+				if (starv[c]) update_star(c);
+				if (tinyv[c]) update_tiny(c);
+			}
+			setTimeout('sparkle()', 40);
+		}
+
+		function update_star(i) {
+			if (--starv[i] == 25) star[i].style.clip = 'rect(1px, 4px, 4px, 1px)';
+			if (starv[i]) {
+				stary[i] += 1 + Math.random() * 3;
+				if (stary[i] < shigh + sdown) {
+					star[i].style.top = stary[i] + 'px';
+					starx[i] += ((i % 5) - 2) / 5;
+					star[i].style.left = starx[i] + 'px';
+				} else {
+					star[i].style.visibility = 'hidden';
+					starv[i] = 0;
+					return;
+				}
+			} else {
+				tinyv[i] = 50;
+				tiny[i].style.top = (tinyy[i] = stary[i]) + 'px';
+				tiny[i].style.left = (tinyx[i] = starx[i]) + 'px';
+				tiny[i].style.width = '2px';
+				tiny[i].style.height = '2px';
+				star[i].style.visibility = 'hidden';
+				tiny[i].style.visibility = 'visible';
+			}
+		}
+
+		function update_tiny(i) {
+			if (--tinyv[i] == 25) {
+				tiny[i].style.width = '1px';
+				tiny[i].style.height = '1px';
+			}
+			if (tinyv[i]) {
+				tinyy[i] += 1 + Math.random() * 3;
+				if (tinyy[i] < shigh + sdown) {
+					tiny[i].style.top = tinyy[i] + 'px';
+					tinyx[i] += ((i % 5) - 2) / 5;
+					tiny[i].style.left = tinyx[i] + 'px';
+				} else {
+					tiny[i].style.visibility = 'hidden';
+					tinyv[i] = 0;
+					return;
+				}
+			} else tiny[i].style.visibility = 'hidden';
+		}
+
+		// Insert the following check at the top of the script
+		document.addEventListener('mousemove', (event) => {
+			if (!event.target.closest('.event-box')) {
+				mouse(event);
+			}
+		});
+		function mouse(e) {
+			set_scroll();
+			y = e ? e.pageY : event.y + sdown;
+			x = e ? e.pageX : event.x + sleft;
+		}
+
+		function set_scroll() {
+			if (typeof self.pageYOffset == 'number') {
+				sdown = self.pageYOffset;
+				sleft = self.pageXOffset;
+			} else if (document.body.scrollTop || document.body.scrollLeft) {
+				sdown = document.body.scrollTop;
+				sleft = document.body.scrollLeft;
+			} else if (
+				document.documentElement &&
+				(document.documentElement.scrollTop || document.documentElement.scrollLeft)
+			) {
+				sleft = document.documentElement.scrollLeft;
+				sdown = document.documentElement.scrollTop;
+			} else {
+				sdown = 0;
+				sleft = 0;
+			}
+		}
+
+		window.onresize = set_width;
+		function set_width() {
+			if (typeof self.innerWidth == 'number') {
+				swide = self.innerWidth;
+				shigh = self.innerHeight;
+			} else if (document.documentElement && document.documentElement.clientWidth) {
+				swide = document.documentElement.clientWidth;
+				shigh = document.documentElement.clientHeight;
+			} else if (document.body.clientWidth) {
+				swide = document.body.clientWidth;
+				shigh = document.body.clientHeight;
+			}
+		}
+
+		function createDiv(height, width) {
+			var div = document.createElement('div');
+			div.style.position = 'absolute';
+			div.style.height = height + 'px';
+			div.style.width = width + 'px';
+			div.style.overflow = 'hidden';
+			div.style.backgroundColor = colour;
+			return div;
+		}
+	</script>
 </div>
 
 <style>
+	/* Animated gradient keyframes */
+	@keyframes gradientAnimation {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+	/* Animated background layer */
+	.background-layer {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1; /* Ensures it stays behind the main content */
+		background: linear-gradient(270deg, #8997e0, #162c3a);
+		background-size: 400% 400%;
+		animation: gradientAnimation 15s ease infinite;
+		opacity: 0.3; /* Adjust this for transparency */
+	}
+
 	/* Styling for clickable areas */
 	.event-box {
 		position: absolute;
@@ -215,7 +460,7 @@
 		color: #fff;
 		padding: 10px;
 		border-radius: 5px;
-		width: 200px;
+		width: 250px;
 		text-align: center;
 		z-index: 10;
 		opacity: 0; /* Set initial opacity to 0 for fade-in effect */
@@ -240,7 +485,7 @@
 	}
 
 	.tooltip:has(img:not(.small)) {
-		width: 450px; /* Wider tooltip only if it contains an image */
+		width: 500px; /* Wider tooltip only if it contains an image */
 	}
 
 	.event-box:hover .tooltip {
