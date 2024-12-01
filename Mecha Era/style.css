@@ -5,7 +5,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('miraclebgblue.png') no-repeat center center; /* Replace with your static image path */
+  background: url('mymatrixbgdone.png') no-repeat center center; /* Replace with your static image path */
   background-size: cover;
   z-index: -3; /* Places it behind the animated background */
 }
@@ -29,11 +29,11 @@
   background: linear-gradient(270deg, #8997e0, #162c3a);
   background-size: 400% 400%;
   animation: gradientAnimation 15s ease infinite;
-  opacity: 0.0; /* Adjust this for transparency */
+  opacity: 0.3; /* Adjust this for transparency */
 }
 
 ::-webkit-scrollbar-thumb:vertical {
-  background: #0a3043;
+  background: #38526f;
   border: 4px solid #fff;
   border-radius: 30px;
   width: 10px;
@@ -51,7 +51,7 @@
   position: relative;
   width: 1080px; /* Match image width */
   height: 1400px; /* Match image height */
-  background: url('mergedwintermiracle.png') no-repeat;
+  background: url('merged bg.png') no-repeat;
   background-size: cover;
   margin: auto;
 }
