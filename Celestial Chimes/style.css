@@ -1,0 +1,160 @@
+
+
+/* Animated gradient keyframes */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.custom-sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: #e52d09 !important; /* ✅ FORCE color */
+  border-radius: 50%;
+  z-index: 99999; /* ✅ Keep it above EVERYTHING */
+  pointer-events: none; /* ✅ Prevents interference */
+  opacity: 1;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+
+  /* ✅ Override forced browser settings */
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+
+.sparkle-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 99999; /* ✅ Above container and background */
+  isolation: isolate; /* ✅ Forces it into its own color context */
+}
+
+:root {
+  color-scheme: light !important;
+}
+
+.custom-sparkle {
+  background-color: #e52d09 !important;
+  color-scheme: light !important;
+}
+
+
+
+
+/* Static background layer (your custom image) */
+.static-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('flowersbg.jpg') no-repeat center center; /* Replace with your static image path */
+  background-size: cover;
+  z-index: -100; /* Places it behind the animated background */
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar-thumb:vertical {
+  background: #f0622a;
+  border: 4px solid #fff;
+  border-radius: 30px;
+  width: 10px;
+}
+
+::-webkit-scrollbar {
+  height: 10px;
+  width: 15px;
+  background: #face6b;
+  border: 7px solid #fff;
+}
+
+/* Set the container to the exact dimensions of the main image */
+.container {
+  position: relative;
+  width: 1080px; /* Match image width */
+  height: 1400px; /* Match image height */
+  background: url('ancient scroll suitu gacha calendar.png') no-repeat;
+  background-size: cover;
+  margin: auto;
+  z-index: 10;
+}
+
+body {
+  position: relative;
+  z-index: 0;
+}
+
+.background-layer {
+  opacity: 1 !important;
+}
+
+/* Styling for clickable areas */
+.event-box {
+  position: absolute;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.event-box:hover {
+  border-color: #f1652a; /* Change to your preferred color */
+}
+
+/* Tooltip styling */
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  width: 200px;
+  text-align: center;
+  z-index: 10;
+  opacity: 0; /* Set initial opacity to 0 for fade-in effect */
+  transition: opacity 0.7s ease, transform 0.7s ease; /* Smooth transition */
+}
+
+/* Active state for tooltips */
+.tooltip.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(-100%);
+  margin-top: -10px;
+}
+
+.event-box:hover .tooltip {
+  display: block;
+  opacity: 1; /* Fully opaque when hovered */
+  transform: translateY(-100%);
+  margin-top: -10px;
+}
+
+/* Specific styling for tooltips containing images */
+.tooltip img {
+  margin-top: 5px;
+  width: 100%; /* Scale image to fit within tooltip */
+  height: auto;
+  border-radius: 5px;
+}
+
+.tooltip:has(img:not(.small)) {
+  width: 450px; /* Wider tooltip only if it contains an image */
+}
+
+.event-box:hover .tooltip {
+  display: block;
+  transform: translateY(-100%); /* Position tooltip above the box */
+  margin-top: -10px; /* Small gap between box and tooltip */
+}
+
+:root {
+  color-scheme: light !important;
+  -webkit-text-fill-color: initial !important; /* Fixes forced light/dark text in Edge/Chrome */
+}
